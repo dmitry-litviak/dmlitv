@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	<title>Dmitry Litviak</title>
 
 	{{--<link href="{{ asset('/css/vendor.css') }}" rel="stylesheet">--}}
@@ -24,8 +25,12 @@
 
 		<div class="row">
 			<div class="col-md-12">
-					<a class="pull-right" id="menu-link" href="#sidr"><i id="menu-icon" class="fa fa-bars fa-5x"></i></a>
-					<a href="{{ url('/') }}">{!! Html::image('images/logo.png', 'logo', array('class' => 'brand-name')) !!}</a>
+				<a class="pull-right" id="menu-link" href="#sidr"><i id="menu-icon" class="fa fa-bars fa-5x"></i></a>
+				<span class="pull-right" id="language-blok">
+					{!! link_to('locale/set/en', 'EN', ['data-lang'=>'en', 'class' => 'language-switch ' . active_language('en')]) !!}
+					{!! link_to('locale/set/ru', 'RU', ['data-lang'=>'ru', 'class' =>'language-switch '  . active_language('ru')]) !!}
+				</span>
+				<a href="{{ url('/') }}">{!! Html::image('images/logo.png', 'logo', array('class' => 'brand-name')) !!}</a>
 			</div>
 		</div>
 
@@ -36,7 +41,7 @@
 
 	<!-- Scripts -->
 	<script src="{{ asset('/js/vendor.js') }}"></script>
-	<script src="{{ asset('/js/app.js') }}"></script>
+	<script src="{{ elixir('js/app.js') }}"></script>
 
 	@yield('footer')
 </body>

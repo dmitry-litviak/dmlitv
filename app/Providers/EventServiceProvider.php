@@ -1,10 +1,10 @@
 <?php namespace App\Providers;
 
 use App\Item;
+use App\Picture;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -31,11 +31,8 @@ class EventServiceProvider extends ServiceProvider {
 
 		Item::created(function($item)
 		{
-			$filename = str_random() . '.' . $item->image->getClientOriginalExtension();
-			$filepath = "items/" .$item->id . "/" . $filename;
-			Storage::disk('local')->put($filepath, File::get($item->image));
-			$item->image = $filename;
-			$item->save();
+			$item->storeOneImage();
+			$item->storeManyImages(Input::file('pictures'), 'App\Picture', 'name');
 		});
 	}
 

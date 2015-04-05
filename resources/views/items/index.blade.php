@@ -2,9 +2,7 @@
 
 @section('content')
 
-    @foreach ($items as $item)
-        <p>{{ $item->title }}</p>
-    @endforeach
+    @include('items.partials._items')
 
 
 @stop

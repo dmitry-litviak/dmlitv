@@ -26,7 +26,9 @@ var bower_path = __dirname + '/' + elixir.config.bowerDir;
         'jquery/dist/jquery.min.js',
         'bootstrap/dist/js/bootstrap.min.js',
         'select2/select2.min.js',
-        'sidr/jquery.sidr.min.js'
+        'sidr/jquery.sidr.min.js',
+        'bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js',
+        'nprogress/nprogress.js'
     ], 'public/js/vendor.js', elixir.config.bowerDir)
 
     .copy('resources/assets/fonts', 'public/fonts')
@@ -34,5 +36,5 @@ var bower_path = __dirname + '/' + elixir.config.bowerDir;
     .copy(elixir.config.bowerDir + '/font-awesome/fonts', 'public/fonts')
     .copy(elixir.config.bowerDir + '/select2/select2x2.png', 'public/css/select2x2.png');
 
-    //mix.version('css/app.css');
+    mix.version('js/app.js');
 });

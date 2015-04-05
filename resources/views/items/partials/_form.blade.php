@@ -19,6 +19,11 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('pictures', 'Pictures:') !!}
+    {!! Form::file('pictures[]', ['multiple' => true]) !!}
+</div>
+
+<div class="form-group">
     {!! Form::label('technology_list', 'Technologies:') !!}
     {!! Form::select('technology_list[]', $technologies, null, ['id' => 'technology_list','class' => 'form-control', 'multiple']) !!}
 </div>
@@ -37,5 +42,6 @@
         $('#technology_list').select2({
             'placeholder': 'Choose a technology'
         });
+        $('textarea').wysihtml5();
     </script>
 @stop

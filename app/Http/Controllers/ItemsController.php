@@ -34,6 +34,7 @@ class ItemsController extends Controller {
 
     public function store(ItemRequest $request)
     {
+        dd($request->all());
         $this->createItem($request);
 
         Flash::success('Item successfully added');

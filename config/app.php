@@ -147,7 +147,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\ViewComposerServiceProvider',
 		'Laracasts\Flash\FlashServiceProvider',
-		'HieuLe\Active\ActiveServiceProvider'
+		'HieuLe\Active\ActiveServiceProvider',
 
 	],
 

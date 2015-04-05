@@ -21,12 +21,21 @@ class ItemRequest extends Request {
 	 */
 	public function rules()
 	{
-		return [
+		$rules =  [
 			'title' => 'required|min:3',
-			'description' => 'required|min:10',
-			'image'	=> 'required|mimes:png,jpeg|max:5000',
+			'en_description' => 'required|min:6',
+			'ru_description' => 'required|min:6',
+			'image'	=> 'image|mimes:png,jpeg|max:5000',
+//			'pictures' => 'required|array',
 			'link'	=> 'required'
 		];
+
+//		$nbr = count($this->input('pictures')) - 1;
+//		foreach(range(0, $nbr) as $index) {
+//			$rules['pictures.' . $index] = 'image|mimes:png,jpeg|max:5000';
+//		}
+
+		return $rules;
 	}
 
 }

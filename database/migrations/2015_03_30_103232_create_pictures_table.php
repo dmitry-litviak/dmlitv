@@ -16,19 +16,11 @@ class CreatePicturesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
-			$table->timestamps();
-		});
-
-		Schema::create('item_picture', function(Blueprint $table)
-		{
-			$table->integer('item_id')->unsigned()->index();
+			$table->integer('item_id')->unsigned();
 			$table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
-
-			$table->integer('picture_id')->unsigned()->index();
-			$table->foreign('picture_id')->references('id')->on('pictures')->onDelete('cascade');
-
 			$table->timestamps();
 		});
+
 	}
 
 	/**
@@ -38,8 +30,11 @@ class CreatePicturesTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('pictures', function($table)
+		{
+			$table->dropForeign('pictures_item_id_foreign');
+		});
 		Schema::drop('pictures');
-		Schema::drop('item_picture');
 	}
 
 }

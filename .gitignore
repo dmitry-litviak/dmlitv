@@ -7,3 +7,4 @@
 /public/fonts
 /storage/app/
 !.gitignore
+.idea
