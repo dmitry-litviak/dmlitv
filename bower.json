@@ -5,6 +5,9 @@
     "font-awesome": "~4.3.0",
     "select2": "~3.5.2",
     "bootstrap": "~3.3.4",
-    "nprogress": "~0.1.6"
+    "nprogress": "~0.1.6",
+    "bootstrap3-wysihtml5-bower": "0.3.3",
+    "sidr": "1.2.1",
+    "wysihtml5x": "0.4.13"
   }
 }
