@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
-	<title>Dmitry Litviak</title>
+	<title>{!! Lang::get('frontend.site_title') !!}</title>
 
 	{{--<link href="{{ asset('/css/vendor.css') }}" rel="stylesheet">--}}
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
